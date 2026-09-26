@@ -1,24 +1,42 @@
-# 🚀 Copilot Project Reference
+# AGENTS.md
 
-## 🛠 Stack
-- **Frontend:** Next.js 16, React 19, Node 24, TS 7, shadcn/ui (`frontend/`, port 3000)
-- **Backend:** FastAPI, Python 3.13, uv, Ruff, pytest (`backend/`, port 8000)
-- **AI:** Ollama (`gemma3:1b`), OpenAI, Anthropic, Grok, Meta, Gemini
+## Stack
 
-## ⌨️ Commands
+* **Frontend:** Node.js 24, Next.js 16, React 19, TypeScript 7, shadcn/ui — `frontend/` — port `3000`
+* **Backend:** Python 3.13, FastAPI, uv, Ruff, pytest — `backend/` — port `8000`
+* **Local AI:** Ollama — `localhost:11434` — `gemma3:1b`
+* **Cloud AI:** OpenAI, Anthropic, Grok, Meta, Gemini
+
+## Commands
+
 ### Frontend
-`cd frontend && npm install && npm run dev`
-- Install package: `npm install <package>`
+
+```bash
+cd frontend
+npm install
+npm run dev
+npm install <package-name>
+```
 
 ### Backend
-`cd backend && uv sync && uv run fastapi dev`
-- Add package: `uv add <package>`
-- Test: `uv run pytest`
-- Lint/Format: `uv run ruff check .` | `uv run ruff format .`
 
-## 📜 Guidelines
-- **Structure:** Keep `frontend/` and `backend/` strictly separated.
-- **Tools:** Use `uv` (Python) and `npm` (JS/TS). Format with **Ruff**.
-- **Workflow:** Run tests after changes; keep updates minimal and consistent.
-- **Security:** **Never commit secrets.** Use environment variables for all API keys.
-- **Dependencies:** Avoid unnecessary new libraries.
+```bash
+cd backend
+uv sync
+uv run fastapi dev
+uv add <package-name>
+uv run pytest
+uv run ruff check .
+uv run ruff format .
+```
+
+## Rules
+
+* Keep frontend code in `frontend/` and backend code in `backend/`.
+* Use `uv` for Python dependencies and `npm` for frontend dependencies.
+* Use Ruff for Python linting and formatting.
+* Run relevant tests after every change.
+* Keep changes minimal and follow existing patterns.
+* Never commit `.env`, API keys, secrets, or credentials.
+* Use environment variables for secrets.
+* Do not introduce dependencies unless necessary.
